@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main()
+{
+    int n,i,time=0,highest,completed=0;
+    int bt[10],rt[10],pr[10];
+    printf("Enter number of processes: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        printf("Burst Time and Priority: ");
+        scanf("%d%d",&bt[i],&pr[i]);
+        rt[i]=bt[i];
+    }
+    while(completed<n)
+    {
+        highest=-1;
+        for(i=0;i<n;i++)
+        {
+            if(rt[i]>0)
+            {
+                if(highest==-1 || pr[i]<pr[highest])
+                    highest=i;
+            }
+        }
+        rt[highest]--;
+        time++;
+        if(rt[highest]==0)
+        {
+            completed++;
+            printf("P%d completed at time %d\n",
+                    highest+1,time);
+        }
+    }
+    return 0;
+}
