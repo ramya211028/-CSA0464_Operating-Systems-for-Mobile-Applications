@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main()
+{
+    int data = 100;
+    printf("Reader is Reading Data = %d\n", data);
+    printf("Writer is Writing Data...\n");
+    data = 200;
+    printf("Reader Reads Updated Data = %d\n", data);
+    return 0;
+}
