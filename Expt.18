@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main()
+{
+    int mutex=1, full=0, empty=3, x=0;
+    printf("Producer Producing...\n");
+    empty--;
+    mutex--;
+    x++;
+    printf("Item Produced = %d\n",x);
+    mutex++;
+    full++;
+    printf("Consumer Consuming...\n");
+    full--;
+    mutex--;
+    printf("Item Consumed = %d\n",x);
+    x--;
+    mutex++;
+    empty++;
+    return 0;
+}
