@@ -1,0 +1,9 @@
+#include <stdio.h>
+int main()
+{
+    printf("Process 1 in Critical Section\n");
+    printf("Process 1 Exit\n");
+    printf("Process 2 in Critical Section\n");
+    printf("Process 2 Exit\n");
+    return 0;
+}
