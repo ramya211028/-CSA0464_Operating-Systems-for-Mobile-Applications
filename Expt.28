@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str[]="Operating Systems";
+    char key[]="Systems";
+    if(strstr(str,key))
+        printf("Match Found");
+    return 0;
+}
