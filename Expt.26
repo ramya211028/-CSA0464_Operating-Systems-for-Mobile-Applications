@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    char str[50];
+    fp = tmpfile();
+    fprintf(fp, "Operating Systems");
+    rewind(fp);
+    fgets(str, sizeof(str), fp);
+    printf("%s", str);
+    fclose(fp);
+    return 0;
+}
