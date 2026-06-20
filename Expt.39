@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int req[50], n, head, seek = 0, temp;
+    printf("Enter number of requests: ");
+    scanf("%d", &n);
+    printf("Enter requests: ");
+    for(int i = 0; i < n; i++)
+        scanf("%d", &req[i]);
+    printf("Enter head position: ");
+    scanf("%d", &head);
+    for(int i = 0; i < n - 1; i++)
+    {
+        for(int j = 0; j < n - i - 1; j++)
+        {
+            if(req[j] > req[j + 1])
+            {
+                temp = req[j];
+                req[j] = req[j + 1];
+                req[j + 1] = temp;
+            }
+        }
+    }
+    int pos;
+    for(pos = 0; pos < n; pos++)
+    {
+        if(req[pos] >= head)
+            break;
+    }
+    for(int i = pos; i < n; i++)
+    {
+        seek += abs(req[i] - head);
+        head = req[i];
+    }
+    if(pos > 0)
+    {
+        seek += abs(head - req[0]);
+        head = req[0];
+
+        for(int i = 1; i < pos; i++)
+        {
+            seek += abs(req[i] - head);
+            head = req[i];
+        }
+    }
+    printf("C-SCAN Seek Time = %d\n", seek);
+    return 0;
+}
