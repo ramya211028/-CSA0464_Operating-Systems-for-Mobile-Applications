@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main()
+{
+    printf("Linux User Types:\n");
+    printf("1. Owner (User)\n");
+    printf("2. Group\n");
+    printf("3. Others\n\n");
+    printf("File Access Permissions:\n");
+    printf("r - Read Permission\n");
+    printf("w - Write Permission\n");
+    printf("x - Execute Permission\n\n");
+    printf("Example Permission: rwxr-xr--\n\n");
+    printf("Owner  : Read Write Execute\n");
+    printf("Group  : Read Execute\n");
+    printf("Others : Read Only\n");
+    return 0;
+}
