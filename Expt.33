@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+    int pages[]={1,2,3,4,1,2,5};
+    int frame[3]={-1,-1,-1};
+    int i,j,k,fault=0,found;
+    for(i=0;i<7;i++)
+    {
+        found=0;
+        for(j=0;j<3;j++)
+            if(frame[j]==pages[i])
+                found=1;
+        if(!found)
+        {
+            frame[i%3]=pages[i];
+            fault++;
+        }
+    }
+    printf("Page Faults = %d",fault);
+    return 0;
+}
