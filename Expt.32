@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main()
+{
+    int pages[]={1,2,3,4,1,2};
+    int frame[3]={-1,-1,-1};
+    int recent[3]={0};
+    int i,j,fault=0,time=0,min,pos,found;
+    for(i=0;i<6;i++)
+    {
+        found=0;
+        time++;
+        for(j=0;j<3;j++)
+        {
+            if(frame[j]==pages[i])
+            {
+                recent[j]=time;
+                found=1;
+            }
+        }
+        if(!found)
+        {
+            min=recent[0];
+            pos=0;
+            for(j=1;j<3;j++)
+            {
+                if(recent[j]<min)
+                {
+                    min=recent[j];
+                    pos=j;
+                }
+            }
+            frame[pos]=pages[i];
+            recent[pos]=time;
+            fault++;
+        }
+    }
+    printf("Page Faults = %d",fault);
+    return 0;
+}
